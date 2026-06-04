@@ -273,8 +273,8 @@ function Hero() {
             style={{ aspectRatio: "4/5" }}
           >
             <img
-              src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80"
-              alt="Modern dental clinic"
+              src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&q=80"
+              alt="Dentist examining a patient during a dental checkup"
               className="w-full h-full object-cover"
             />
             {/* Overlay tint */}
