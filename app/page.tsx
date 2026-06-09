@@ -4,7 +4,7 @@
 import { motion, type Variants } from "framer-motion";
 import { 
   ArrowRight, Star, CheckCircle, Clock, MapPin, Phone, 
-  Activity, Shield, Award, Users, ChevronDown, Mail, Menu, X, MessageCircle, PhoneCall, Calendar
+  Activity, Shield, Award, Users, ChevronDown, MessageCircle, PhoneCall, Calendar
 } from "lucide-react";
 import { useState } from "react";
 
@@ -20,86 +20,27 @@ const staggerContainer: Variants = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background flex flex-col selection:bg-secondary selection:text-white">
-      <Navbar />
-      <FloatingCTAs />
-      <main className="flex-grow">
-        <HeroSection />
-        <TrustBar />
-        <ServicesSection />
-        <DoctorSpotlight />
-        <PatientJourney />
-        <BeforeAfterSection />
-        <WhyChooseUs />
-        <ClinicGallery />
-        <Testimonials />
-        <FAQSection />
-        <ConsultationCTA />
-        <ContactFormSection />
-        <LocationSection />
-      </main>
-      <Footer />
+    <div className="selection:bg-secondary selection:text-white">
+      <HeroSection />
+      <TrustBar />
+      <ServicesSection />
+      <DoctorSpotlight />
+      <PatientJourney />
+      <BeforeAfterSection />
+      <WhyChooseUs />
+      <ClinicGallery />
+      <Testimonials />
+      <FAQSection />
+      <ConsultationCTA />
+      <ContactFormSection />
+      <LocationSection />
     </div>
   );
 }
 
-function FloatingCTAs() {
-  return (
-    <div className="flex flex-col gap-4 fixed right-4 bottom-4 md:right-6 md:bottom-6 z-50 items-end">
-      <button onClick={() => alert('Opening WhatsApp chat with Cura Dental...')} className="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform hover:shadow-[#25D366]/50">
-        <MessageCircle className="w-6 h-6" />
-      </button>
-      <button onClick={() => alert('Initiating phone call to +91 98765 43210...')} className="w-14 h-14 bg-secondary text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform hover:shadow-secondary/50">
-        <PhoneCall className="w-6 h-6" />
-      </button>
-      <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-primary text-white w-14 h-14 sm:w-auto sm:px-6 sm:py-4 rounded-full flex items-center justify-center gap-2 font-bold shadow-2xl hover:scale-105 transition-transform hover:shadow-primary/50">
-        <Calendar className="w-6 h-6 sm:w-5 sm:h-5" /> <span className="hidden sm:inline">Book Appointment</span>
-      </button>
-    </div>
-  );
-}
 
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <header className="fixed top-0 w-full z-50 glassmorphism border-b border-primary/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <div className="text-2xl font-serif font-bold text-primary">Cura<span className="text-secondary">Dental</span></div>
-        <nav className="hidden md:flex gap-8 text-sm font-medium text-text">
-          <a href="#services" className="hover:text-secondary transition-colors">Services</a>
-          <a href="#about" className="hover:text-secondary transition-colors">About</a>
-          <a href="#gallery" className="hover:text-secondary transition-colors">Gallery</a>
-          <a href="#reviews" className="hover:text-secondary transition-colors">Reviews</a>
-          <a href="#contact" className="hover:text-secondary transition-colors">Contact</a>
-        </nav>
-        <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="hidden md:block bg-primary text-white px-6 py-2.5 rounded-full hover:bg-secondary transition-colors font-medium text-sm shadow-md">
-          Book Now
-        </button>
-        <button className="md:hidden text-primary" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-      
-      {/* Mobile Menu */}
-      {isOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
-          className="md:hidden absolute top-full left-0 w-full bg-white border-b border-primary/10 shadow-xl py-4 px-4 flex flex-col gap-4"
-        >
-          <a href="#services" onClick={() => setIsOpen(false)} className="block font-medium text-text hover:text-secondary">Services</a>
-          <a href="#about" onClick={() => setIsOpen(false)} className="block font-medium text-text hover:text-secondary">About</a>
-          <a href="#gallery" onClick={() => setIsOpen(false)} className="block font-medium text-text hover:text-secondary">Gallery</a>
-          <a href="#reviews" onClick={() => setIsOpen(false)} className="block font-medium text-text hover:text-secondary">Reviews</a>
-          <a href="#contact" onClick={() => setIsOpen(false)} className="block font-medium text-text hover:text-secondary">Contact</a>
-          <button onClick={() => { setIsOpen(false); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full bg-primary text-white px-6 py-3 rounded-full hover:bg-secondary transition-colors font-medium text-sm mt-2 shadow-md">
-            Book Now
-          </button>
-        </motion.div>
-      )}
-    </header>
-  );
-}
+
 
 function HeroSection() {
   return (
@@ -678,63 +619,4 @@ function LocationSection() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="bg-primary pt-24 pb-12 text-white/80 rounded-t-[3rem] mt-12 mb-16 md:mb-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div className="lg:col-span-1">
-            <div className="text-3xl font-serif font-bold text-white mb-6">Cura<span className="text-secondary">Dental</span></div>
-            <p className="mb-8 text-sm md:text-base leading-relaxed">Elevating dental care through advanced technology, luxury hospitality, and clinical excellence.</p>
-            <div className="flex gap-4">
-              <a href="#" className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors font-bold">IG</a>
-              <a href="#" className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors font-bold">FB</a>
-              <a href="#" className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors font-bold">X</a>
-            </div>
-          </div>
-          
-          <div>
-            <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
-            <ul className="space-y-4">
-              <li><a href="#" className="hover:text-secondary transition-colors">Home</a></li>
-              <li><a href="#about" className="hover:text-secondary transition-colors">About Clinic</a></li>
-              <li><a href="#services" className="hover:text-secondary transition-colors">Treatments</a></li>
-              <li><a href="#reviews" className="hover:text-secondary transition-colors">Patient Reviews</a></li>
-              <li><a href="#contact" className="hover:text-secondary transition-colors">Contact Us</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-white font-bold text-lg mb-6">Treatments</h4>
-            <ul className="space-y-4">
-              <li><a href="#" className="hover:text-secondary transition-colors">Dental Implants</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">Invisalign</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">Porcelain Veneers</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">Teeth Whitening</a></li>
-              <li><a href="#" className="hover:text-secondary transition-colors">Root Canal Therapy</a></li>
-            </ul>
-          </div>
 
-          <div>
-            <h4 className="text-white font-bold text-lg mb-6">Newsletter</h4>
-            <p className="mb-6 text-sm md:text-base">Subscribe for oral health tips and clinic updates.</p>
-            <div className="flex flex-col gap-3">
-              <input type="email" placeholder="Email address" className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 w-full outline-none focus:border-secondary transition-colors" />
-              <button onClick={(e) => { e.preventDefault(); alert('Successfully subscribed to our newsletter!'); (e.target as HTMLButtonElement).closest('div')?.querySelector('input')?.value && ((e.target as HTMLButtonElement).closest('div')!.querySelector('input')!.value = ''); }} className="bg-secondary text-white px-4 py-3 rounded-xl hover:bg-secondary/80 transition-colors font-bold flex justify-center items-center gap-2">
-                Subscribe <Mail className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Cura Dental Clinic. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
