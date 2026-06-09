@@ -46,15 +46,15 @@ export default function Home() {
 function FloatingCTAs() {
   return (
     <div className="flex flex-col gap-4 fixed right-4 bottom-4 md:right-6 md:bottom-6 z-50 items-end">
-      <a href="#" className="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform hover:shadow-[#25D366]/50">
+      <button onClick={() => alert('Opening WhatsApp chat with Cura Dental...')} className="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform hover:shadow-[#25D366]/50">
         <MessageCircle className="w-6 h-6" />
-      </a>
-      <a href="#" className="w-14 h-14 bg-secondary text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform hover:shadow-secondary/50">
+      </button>
+      <button onClick={() => alert('Initiating phone call to +91 98765 43210...')} className="w-14 h-14 bg-secondary text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform hover:shadow-secondary/50">
         <PhoneCall className="w-6 h-6" />
-      </a>
-      <a href="#" className="bg-primary text-white w-14 h-14 sm:w-auto sm:px-6 sm:py-4 rounded-full flex items-center justify-center gap-2 font-bold shadow-2xl hover:scale-105 transition-transform hover:shadow-primary/50">
+      </button>
+      <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-primary text-white w-14 h-14 sm:w-auto sm:px-6 sm:py-4 rounded-full flex items-center justify-center gap-2 font-bold shadow-2xl hover:scale-105 transition-transform hover:shadow-primary/50">
         <Calendar className="w-6 h-6 sm:w-5 sm:h-5" /> <span className="hidden sm:inline">Book Appointment</span>
-      </a>
+      </button>
     </div>
   );
 }
@@ -73,7 +73,7 @@ function Navbar() {
           <a href="#reviews" className="hover:text-secondary transition-colors">Reviews</a>
           <a href="#contact" className="hover:text-secondary transition-colors">Contact</a>
         </nav>
-        <button className="hidden md:block bg-primary text-white px-6 py-2.5 rounded-full hover:bg-secondary transition-colors font-medium text-sm shadow-md">
+        <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="hidden md:block bg-primary text-white px-6 py-2.5 rounded-full hover:bg-secondary transition-colors font-medium text-sm shadow-md">
           Book Now
         </button>
         <button className="md:hidden text-primary" onClick={() => setIsOpen(!isOpen)}>
@@ -92,7 +92,7 @@ function Navbar() {
           <a href="#gallery" onClick={() => setIsOpen(false)} className="block font-medium text-text hover:text-secondary">Gallery</a>
           <a href="#reviews" onClick={() => setIsOpen(false)} className="block font-medium text-text hover:text-secondary">Reviews</a>
           <a href="#contact" onClick={() => setIsOpen(false)} className="block font-medium text-text hover:text-secondary">Contact</a>
-          <button className="w-full bg-primary text-white px-6 py-3 rounded-full hover:bg-secondary transition-colors font-medium text-sm mt-2 shadow-md">
+          <button onClick={() => { setIsOpen(false); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full bg-primary text-white px-6 py-3 rounded-full hover:bg-secondary transition-colors font-medium text-sm mt-2 shadow-md">
             Book Now
           </button>
         </motion.div>
@@ -126,13 +126,13 @@ function HeroSection() {
               Personalized treatments, advanced technology, and experienced specialists helping patients achieve healthier, brighter smiles.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 flex-wrap">
-              <button className="bg-primary text-white px-8 py-4 rounded-full hover:bg-secondary transition-all flex items-center justify-center gap-2 font-medium text-lg shadow-xl shadow-primary/20 hover:-translate-y-1">
+              <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-primary text-white px-8 py-4 rounded-full hover:bg-secondary transition-all flex items-center justify-center gap-2 font-medium text-lg shadow-xl shadow-primary/20 hover:-translate-y-1">
                 Book Consultation <ArrowRight className="w-5 h-5" />
               </button>
-              <button className="px-8 py-4 rounded-full bg-[#25D366] text-white hover:bg-[#20bd5a] transition-all font-medium text-lg flex items-center justify-center gap-2 shadow-xl hover:-translate-y-1">
+              <button onClick={() => alert('Opening WhatsApp chat with Cura Dental...')} className="px-8 py-4 rounded-full bg-[#25D366] text-white hover:bg-[#20bd5a] transition-all font-medium text-lg flex items-center justify-center gap-2 shadow-xl hover:-translate-y-1">
                 <MessageCircle className="w-5 h-5" /> WhatsApp Us
               </button>
-              <button className="px-8 py-4 rounded-full border border-primary/20 hover:border-secondary hover:text-secondary transition-all font-medium text-lg flex items-center justify-center bg-white/50 backdrop-blur-sm hover:-translate-y-1 gap-2">
+              <button onClick={() => alert('Initiating phone call to +91 98765 43210...')} className="px-8 py-4 rounded-full border border-primary/20 hover:border-secondary hover:text-secondary transition-all font-medium text-lg flex items-center justify-center bg-white/50 backdrop-blur-sm hover:-translate-y-1 gap-2">
                 <PhoneCall className="w-5 h-5" /> Call Now
               </button>
             </motion.div>
@@ -229,7 +229,7 @@ function ServicesSection() {
               <p className="text-text mb-8 leading-relaxed flex-grow">{service.desc}</p>
               
               <div className="flex flex-col gap-3 mt-auto">
-                <button className="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-secondary transition-colors">Book Consultation</button>
+                <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-secondary transition-colors">Book Consultation</button>
                 <a href="#" className="inline-flex justify-center items-center text-secondary font-bold hover:text-primary transition-colors">
                   Learn More <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
@@ -288,7 +288,7 @@ function DoctorSpotlight() {
               ))}
             </ul>
             <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Signature_of_John_Hancock.svg" alt="Signature" className="h-12 opacity-60 mix-blend-multiply mb-6" />
-            <button className="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-secondary transition-colors shadow-lg hover:-translate-y-1">
+            <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-full font-bold hover:bg-secondary transition-colors shadow-lg hover:-translate-y-1">
               Book Appointment With Doctor
             </button>
           </motion.div>
@@ -358,7 +358,7 @@ function BeforeAfterSection() {
         </div>
 
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mt-12">
-          <button className="bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-secondary hover:text-white transition-colors shadow-xl hover:-translate-y-1">
+          <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-secondary hover:text-white transition-colors shadow-xl hover:-translate-y-1">
             Get Similar Results
           </button>
         </motion.div>
@@ -382,7 +382,7 @@ function WhyChooseUs() {
           <div className="lg:w-1/3">
             <h2 className="text-3xl md:text-5xl font-serif text-primary mb-6 leading-tight">Why Patients Choose Cura</h2>
             <p className="text-text mb-10 text-sm md:text-base leading-relaxed">We combine luxury hospitality with advanced medical science to redefine what a visit to the dentist feels like.</p>
-            <button className="bg-primary text-white px-8 py-4 rounded-full hover:bg-secondary transition-colors font-bold shadow-lg hover:-translate-y-1">
+            <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-primary text-white px-8 py-4 rounded-full hover:bg-secondary transition-colors font-bold shadow-lg hover:-translate-y-1">
               Book Your Visit
             </button>
           </div>
@@ -557,13 +557,13 @@ function ConsultationCTA() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-          <button className="bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-secondary hover:text-white transition-colors flex justify-center items-center gap-3 shadow-2xl hover:scale-105">
+          <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-secondary hover:text-white transition-colors flex justify-center items-center gap-3 shadow-2xl hover:scale-105">
             <Calendar className="w-5 h-5" /> Book Consultation
           </button>
-          <button className="bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#20bd5a] transition-colors flex justify-center items-center gap-3 shadow-2xl hover:scale-105">
+          <button onClick={() => alert('Opening WhatsApp chat with Cura Dental...')} className="bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#20bd5a] transition-colors flex justify-center items-center gap-3 shadow-2xl hover:scale-105">
             <MessageCircle className="w-5 h-5" /> WhatsApp Us
           </button>
-          <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-primary transition-colors flex justify-center items-center gap-3 shadow-2xl hover:scale-105">
+          <button onClick={() => alert('Initiating phone call to +91 98765 43210...')} className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-primary transition-colors flex justify-center items-center gap-3 shadow-2xl hover:scale-105">
             <PhoneCall className="w-5 h-5" /> Call Now
           </button>
         </div>
@@ -590,7 +590,7 @@ function ContactFormSection() {
             <motion.form 
               initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
               className="bg-background p-8 md:p-10 rounded-[2rem] shadow-xl border border-primary/5 flex flex-col gap-6"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={(e) => { e.preventDefault(); alert('Thank you! Your consultation request has been submitted. We will contact you shortly.'); (e.target as HTMLFormElement).reset(); }}
             >
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -720,7 +720,7 @@ function Footer() {
             <p className="mb-6 text-sm md:text-base">Subscribe for oral health tips and clinic updates.</p>
             <div className="flex flex-col gap-3">
               <input type="email" placeholder="Email address" className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 w-full outline-none focus:border-secondary transition-colors" />
-              <button className="bg-secondary text-white px-4 py-3 rounded-xl hover:bg-secondary/80 transition-colors font-bold flex justify-center items-center gap-2">
+              <button onClick={(e) => { e.preventDefault(); alert('Successfully subscribed to our newsletter!'); (e.target as HTMLButtonElement).closest('div')?.querySelector('input')?.value && ((e.target as HTMLButtonElement).closest('div')!.querySelector('input')!.value = ''); }} className="bg-secondary text-white px-4 py-3 rounded-xl hover:bg-secondary/80 transition-colors font-bold flex justify-center items-center gap-2">
                 Subscribe <Mail className="w-5 h-5" />
               </button>
             </div>
