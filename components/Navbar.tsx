@@ -25,14 +25,14 @@ export default function Navbar() {
         <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="hidden md:block bg-primary text-white px-6 py-2.5 rounded-full hover:bg-secondary transition-colors font-medium text-sm shadow-md">
           Book Now
         </button>
-        <button className="md:hidden text-primary" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden text-primary mr-8" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
-      
+
       {/* Mobile Menu */}
       {isOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
           className="md:hidden absolute top-full left-0 w-full bg-white border-b border-primary/10 shadow-xl py-4 px-4 flex flex-col gap-4"
         >
